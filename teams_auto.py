@@ -1,3 +1,5 @@
+# Version 1
+
 import pyautogui
 
 teams_a_new_message = pyautogui.locateCenterOnScreen('images\\a_new_message.png')
@@ -57,7 +59,7 @@ print('Exiting...')
 '''
 must be:
     on same screen
-    dark theme (teams)
+    'dark' theme (teams)
     computer unlocked?
 '''
 
