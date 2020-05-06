@@ -3,6 +3,7 @@
 
 import pyautogui
 import time
+from datetime import datetime
 
 # Locations of images
 teams_a_new_message_location = 'images\\a_new_message.png'
@@ -28,6 +29,10 @@ def click_and_write_something(click_location, message):
     pyautogui.click(click_location)
     pyautogui.write(message)
     pyautogui.press('enter')
+    exitProgramSuccessfully()
+
+
+def exitProgramSuccessfully():
     print('---SUCCESS---, Exiting Program...')
     exit()
 
@@ -51,10 +56,25 @@ def activate_and_swap():
 
 
 if __name__ == "__main__":
-    print("This program should be started with Teams already on the Primary monitor and in the Foreground.")
+    print("This program should be started with Teams and the desired chat/converation"
+          "already on the Primary monitor and in the Foreground.")
     print("This version only runs once. Must be started again manually before the desired message sending time.")
-    initialize()
-    attempt()
+
+    now = datetime.now()
+    print(now.strftime('%H:%M:%S'))
+    while True:
+        time.sleep(1)
+        now = datetime.now()
+        print('Now = ', now.strftime('%H:%M:%S'))
+        if now.strftime('%H') == '08':
+            if now.strftime('%M') == '30':
+                print("past main hurdle")
+                initialize()
+                attempt()
+                time.sleep(1)
+                break
+
+
 
     # The program should end successfully before this line.
     # However, we attempt to correct the situation
